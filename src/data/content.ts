@@ -93,7 +93,7 @@ export const projects: Project[] = [
     name: "SceneSponsor",
     blurb:
       "An agent that places branded products inside creator videos that already exist, instead of interrupting them with an ad. A vision model reads sampled frames and plans placement geometry per keyframe — surface, perspective, lighting, occlusion risk — and the clip is composited with FFmpeg in an isolated worker. Nothing exports until the creator reviews the agent's reasoning and approves it.",
-    href: "https://github.com/toyeshhm/ScreenSponsor",
+    href: "https://github.com/SuchayK/ScreenSponsor",
     context: "Team project · Daytona HackSprint #5 with Braintrust, San Francisco",
     role: "Worked across the stack — scene-understanding pipeline, video rendering, creator studio UI, and the job API — and generated the sponsor asset library the compositor draws from: transparent-background product renders (cans, bottles, totes, posters) across eight brands.",
     tags: ["TypeScript", "Next.js", "Fireworks AI", "FFmpeg", "Supabase"],
@@ -122,9 +122,11 @@ export const projects: Project[] = [
   {
     name: "greenAcres",
     blurb:
-      "Crop yield prediction from geolocation plus live weather and soil data. Built for TSA with a two-person team.",
+      "Pick a point on a map and get the crops that will actually grow there. Live climate data feeds a Keras classifier over 22 crops, served from a Flask API behind a Leaflet frontend.",
     href: "https://github.com/SuchayK/greenAcres",
-    tags: ["JavaScript", "ML"],
+    context: "Team of 3 · 1st place, Texas TSA State Conference · Top 16, TSA Nationals 2025",
+    role: "Database and API manager — the prediction service and the data sources feeding it.",
+    tags: ["Python", "TensorFlow", "Flask", "JavaScript", "Leaflet"],
   },
 ];
 
