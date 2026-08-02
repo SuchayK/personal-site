@@ -95,7 +95,7 @@ export const projects: Project[] = [
       "An agent that places branded products inside creator videos that already exist, instead of interrupting them with an ad. A vision model reads sampled frames and plans placement geometry per keyframe — surface, perspective, lighting, occlusion risk — and the clip is composited with FFmpeg in an isolated worker. Nothing exports until the creator reviews the agent's reasoning and approves it.",
     href: "https://github.com/toyeshhm/ScreenSponsor",
     context: "Team project · Daytona HackSprint #5 with Braintrust, San Francisco",
-    role: "Worked across the stack — scene-understanding pipeline, video rendering, creator studio UI, and the job API.",
+    role: "Worked across the stack — scene-understanding pipeline, video rendering, creator studio UI, and the job API — and generated the sponsor asset library the compositor draws from: transparent-background product renders (cans, bottles, totes, posters) across eight brands.",
     tags: ["TypeScript", "Next.js", "Fireworks AI", "FFmpeg", "Supabase"],
   },
   {
