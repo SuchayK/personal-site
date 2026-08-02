@@ -78,9 +78,26 @@ export type Project = {
   blurb: string;
   href: string;
   tags: string[];
+  /** Shown as a small line under the title, e.g. where it was built. */
+  context?: string;
+  /**
+   * What you personally did. Set this on any team project — the repo won't
+   * always show it, and "what did you actually build" is the first question
+   * anyone asks about group work.
+   */
+  role?: string;
 };
 
 export const projects: Project[] = [
+  {
+    name: "SceneSponsor",
+    blurb:
+      "An agent that places branded products inside creator videos that already exist, instead of interrupting them with an ad. A vision model reads sampled frames and plans placement geometry per keyframe — surface, perspective, lighting, occlusion risk — and the clip is composited with FFmpeg in an isolated worker. Nothing exports until the creator reviews the agent's reasoning and approves it.",
+    href: "https://github.com/toyeshhm/ScreenSponsor",
+    context: "Team project · Daytona HackSprint #5 with Braintrust, San Francisco",
+    role: "Worked across the stack — scene-understanding pipeline, video rendering, creator studio UI, and the job API.",
+    tags: ["TypeScript", "Next.js", "Fireworks AI", "FFmpeg", "Supabase"],
+  },
   {
     name: "Detectron2 Immune Cells",
     blurb:

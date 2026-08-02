@@ -33,9 +33,25 @@ export function ProjectList() {
               {project.name}
               <ArrowIcon />
             </h3>
+
+            {project.context && (
+              <p className="mt-1 font-mono text-[11px] text-muted">
+                {project.context}
+              </p>
+            )}
+
             <p className="mt-1.5 max-w-xl leading-relaxed text-muted">
               {project.blurb}
             </p>
+
+            {/* Team projects state the contribution explicitly — the repo's
+                commit history doesn't always carry it. */}
+            {project.role && (
+              <p className="mt-2 max-w-xl border-l-2 border-rule pl-3 text-sm leading-relaxed text-muted">
+                {project.role}
+              </p>
+            )}
+
             <TagRow tags={project.tags} />
           </a>
         </li>
