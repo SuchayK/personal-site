@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal site
 
-## Getting Started
+Personal website for Suchay Kommisetty. Next.js 16 (App Router) + Tailwind 4, statically
+prerendered, deployed on Vercel.
 
-First, run the development server:
+## Editing content
+
+**All copy lives in [`src/data/content.ts`](src/data/content.ts).** Add a project, a paper, a
+job, or an award by editing that file — the components read from it and lay themselves out.
+You should not need to touch a component to change what the site says.
+
+> One rule for that file: **nothing on this site names a company that hasn't announced
+> itself.** Current startup work is deliberately absent.
+
+## Running it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploying
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Push this repo to GitHub.
+2. Import it at [vercel.com/new](https://vercel.com/new). No configuration needed — Vercel
+   detects Next.js and the defaults are correct.
+3. Add a custom domain in the Vercel project settings, then update `site.url` in
+   `content.ts` so canonical URLs and social cards point at the right place.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+```
+src/
+├── app/
+│   ├── layout.tsx        fonts, metadata, Open Graph
+│   ├── page.tsx          section composition
+│   └── globals.css       palette and base styles
+├── components/
+│   ├── Header.tsx        sticky nav; grows a rule once you scroll past the hero
+│   ├── Hero.tsx          name, tagline, contact links
+│   ├── Section.tsx       two-column section wrapper (label in a left gutter)
+│   ├── ResearchList.tsx  academic-convention entries: title, venue, year, summary
+│   ├── ProjectList.tsx   linked cards with tech tags
+│   ├── ExperienceList.tsx
+│   └── Tag.tsx
+└── data/
+    └── content.ts        ← everything you edit
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Design notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Light minimal, sitting between a developer portfolio and an academic homepage — research and
+projects get equal billing, which matches the actual record better than either extreme.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Palette.** Warm off-white paper, near-black ink, one accent — UT Austin burnt orange
+  (`#bf5700`), desaturated enough to sit under body text. Dark mode is a full re-map via
+  `prefers-color-scheme`, not an inversion.
+- **Type.** Inter for text, JetBrains Mono for metadata — venues, years, tech tags, section
+  labels. The mono is doing structural work, not decoration.
+- **Sections** carry their label in a narrow left gutter on desktop and stack on mobile.
+- **Accessibility.** Skip link, visible focus rings, semantic landmarks, ordered lists for
+  chronological content, and `prefers-reduced-motion` honoured.
 
-## Deploy on Vercel
+## To do
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Add competition placements for Robot Tour and VEX once confirmed
+- [ ] Custom domain, then update `site.url`
+- [ ] `public/og.png` — social preview image, then reference it in `layout.tsx`
+- [ ] Consider a `/writing` route if there's ever anything to put in it
