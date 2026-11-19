@@ -152,7 +152,7 @@ export const projects: Project[] = [
     blurb:
       "Autonomous maze navigation for Science Olympiad on a Pololu 3pi+. I wrote the A* path planner, and separate PID loops for distance and gyro-measured turns keep dead-reckoning drift low.",
     href: "https://www.linkedin.com/in/suchay-sai-kommisetty/details/projects/",
-    context: "2nd, MIT Science Olympiad Invitational · 2nd, Texas State 2025",
+    context: "2nd, Texas State 2025",
     tags: ["C++", "Path planning", "PID"],
   },
 ];
